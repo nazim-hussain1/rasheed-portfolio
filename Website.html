@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rasheed Khaskheli</title>
+  <meta name="description" content="Official portfolio of Rasheed Khaskheli, a television and screen actor based in Pakistan." />
+  <meta name="author" content="Rasheed Khaskheli" />
+  <meta property="og:title" content="Rasheed Khaskheli — Pakistani Television Actor" />
+  <meta property="og:description" content="Selected screen work, portraits and representation details for Rasheed Khaskheli." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/x-icon" href="Favicon/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="Favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="Favicon/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="Favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="Favicon/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" />
+
+  <style>
+    /* ------------------------------------------------------------------
+       Design tokens
+    ------------------------------------------------------------------ */
+    :root {
+      --background: oklch(0.975 0.008 82);
+      --foreground: oklch(0.16 0.012 55);
+      --muted: oklch(0.89 0.012 75);
+      --muted-foreground: oklch(0.43 0.015 58);
+      --primary: oklch(0.205 0.018 58);
+      --primary-foreground: oklch(0.94 0.02 80);
+      --accent: oklch(0.7 0.115 66);
+      --accent-foreground: oklch(0.15 0.014 57);
+      --border: oklch(0.79 0.014 72);
+      --inverse: oklch(0.98 0.004 80);
+
+      --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --font-display: "Cormorant Garamond", ui-serif, Georgia, "Times New Roman", serif;
+    }
+
+    /* ------------------------------------------------------------------
+       Base / reset
+    ------------------------------------------------------------------ */
+    *, *::before, *::after { box-sizing: border-box; border: 0 solid var(--border); }
+    html { scroll-behavior: smooth; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      letter-spacing: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, p { margin: 0; font-size: inherit; font-weight: inherit; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--accent); color: var(--accent-foreground); }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+    .font-display { font-family: var(--font-display); }
+    .label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
+    .muted { color: var(--muted-foreground); }
+    .icon { flex: none; }
+
+    main { min-height: 100vh; overflow: hidden; background: var(--background); color: var(--foreground); }
+
+    /* ------------------------------------------------------------------
+       Header
+    ------------------------------------------------------------------ */
+    .site-header {
+      position: relative; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 4rem; padding-inline: 1.25rem;
+      border-bottom-width: 1px; background: var(--background);
+    }
+    .brand { font-family: var(--font-display); font-size: 1.25rem; line-height: 1.75rem; font-weight: 600; }
+    .site-nav {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+    }
+    .nav-link { position: relative; padding-block: 0.5rem; }
+    .nav-link::after {
+      content: ""; position: absolute; inset-inline: 0; bottom: 0.2rem; height: 1px;
+      background: currentColor; transform: scaleX(0); transform-origin: right;
+      transition: transform 250ms ease;
+    }
+    .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav-link.about-link { display: none; }
+    .nav-icon {
+      display: grid; width: 2rem; height: 2rem; place-items: center;
+      border: 1px solid var(--border);
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+    .nav-icon:hover { background: var(--foreground); color: var(--background); }
+
+    /* ------------------------------------------------------------------
+       Hero strip
+    ------------------------------------------------------------------ */
+    .hero {
+      position: relative; overflow: hidden;
+      height: 34vh; min-height: 16rem; max-height: 28rem;
+    }
+    .hero-grid { display: grid; height: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); grid-auto-rows: 0; }
+    .hero-grid img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .scroll-btn {
+      position: absolute; bottom: 1.25rem; right: 1.25rem;
+      display: grid; width: 2.5rem; height: 2.5rem; place-items: center;
+      border: 1px solid color-mix(in oklab, var(--inverse) 50%, transparent);
+      color: var(--inverse);
+      -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+      transition: background-color 150ms ease, color 150ms ease;
+    }
+    .scroll-btn:hover { background: var(--inverse); color: var(--foreground); }
+
+    /* ------------------------------------------------------------------
+       Name plate
+    ------------------------------------------------------------------ */
+    .nameplate {
+      position: relative; display: flex; align-items: center; justify-content: center;
+      min-height: 16rem; padding: 4rem 1.25rem; text-align: center;
+      border-bottom-width: 1px;
+    }
+    .nameplate .label.corner {
+      position: absolute; left: 1.25rem; top: 1.25rem;
+      font-size: 0.64rem; font-weight: 600; color: var(--muted-foreground);
+    }
+    .nameplate h1 {
+      font-family: var(--font-display);
+      font-size: clamp(4.2rem, 11vw, 10.5rem); line-height: 0.78;
+    }
+    .nameplate .tagline {
+      margin-top: 1.75rem; font-size: 0.75rem; line-height: 1rem; font-weight: 500;
+      text-transform: uppercase; color: var(--muted-foreground);
+    }
+
+    /* ------------------------------------------------------------------
+       About
+    ------------------------------------------------------------------ */
+    .about { display: grid; min-height: 74vh; }
+    .about-photo { position: relative; min-height: 32rem; overflow: hidden; background: var(--muted); }
+    .about-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; }
+    .about-photo .caption {
+      position: absolute; bottom: 1.25rem; left: 1.25rem;
+      background: var(--background); padding: 0.5rem 0.75rem;
+      font-size: 0.61rem; font-weight: 600; text-transform: uppercase;
+    }
+    .about-copy {
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 1.5rem; background: var(--primary); color: var(--primary-foreground);
+    }
+    .about-body { padding-block: 4rem; }
+    .about-quote {
+      font-family: var(--font-display);
+      font-size: 2.25rem; line-height: 1.02;
+    }
+    .about-quote em { font-weight: 400; font-style: italic; }
+    .about-text {
+      margin-top: 2rem; max-width: 28rem;
+      font-size: 0.875rem; line-height: 1.75rem;
+      color: color-mix(in oklab, var(--primary-foreground) 75%, transparent);
+    }
+    .about-cta {
+      display: inline-flex; width: fit-content; align-items: center; gap: 0.75rem;
+      border-bottom: 1px solid var(--primary-foreground); padding-bottom: 0.5rem;
+      font-size: 0.75rem; line-height: 1rem; font-weight: 700; text-transform: uppercase;
+    }
+
+    /* ------------------------------------------------------------------
+       Selected work
+    ------------------------------------------------------------------ */
+    .work {
+      background: var(--background); border-block-width: 1px;
+      padding: 5rem 1.25rem;
+    }
+    .work-inner { max-width: 90rem; margin-inline: auto; }
+    .work-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3.5rem; }
+    .work-head .label { margin-bottom: 0.75rem; color: var(--muted-foreground); }
+    .work-head h2 { font-family: var(--font-display); font-size: 3rem; line-height: 1; }
+    .work-head .range { display: none; font-size: 0.75rem; line-height: 1rem; text-transform: uppercase; color: var(--muted-foreground); }
+    .credits { border-block-width: 1px; }
+    .credit {
+      display: grid; align-items: center; gap: 0.5rem; padding-block: 1.5rem;
+    }
+    .credit + .credit { border-top-width: 1px; }
+    .credit .year { font-size: 0.75rem; line-height: 1rem; color: var(--muted-foreground); }
+    .credit h3 {
+      font-family: var(--font-display); font-size: 1.875rem; line-height: 2.25rem;
+      transition: transform 300ms ease;
+    }
+    .credit:hover h3 { transform: translateX(0.5rem); }
+    .credit .role { font-size: 0.75rem; line-height: 1rem; text-transform: uppercase; color: var(--muted-foreground); }
+
+    /* ------------------------------------------------------------------
+       Contact footer
+    ------------------------------------------------------------------ */
+    .site-footer {
+      background: var(--accent); color: var(--accent-foreground);
+      padding: 4rem 1.25rem;
+    }
+    .footer-inner { display: grid; gap: 3.5rem; max-width: 90rem; margin-inline: auto; }
+    .footer-inner .label { margin-bottom: 1.25rem; }
+    .footer-cta {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6vw, 6rem); line-height: 1;
+      text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 8px;
+    }
+    .footer-links {
+      display: flex; flex-direction: column; gap: 0.75rem;
+      font-size: 0.75rem; line-height: 1rem; font-weight: 600; text-transform: uppercase;
+    }
+    .footer-links a { display: inline-flex; align-items: center; gap: 0.5rem; }
+    .footer-base {
+      display: flex; justify-content: space-between;
+      max-width: 90rem; margin: 5rem auto 0; padding-top: 1.25rem;
+      border-top: 1px solid color-mix(in oklab, var(--accent-foreground) 20%, transparent);
+      font-size: 0.6rem; font-weight: 600; text-transform: uppercase;
+    }
+
+    /* ------------------------------------------------------------------
+       ≥ 640px
+    ------------------------------------------------------------------ */
+    @media (min-width: 640px) {
+      .site-header { padding-inline: 2rem; }
+      .site-nav { gap: 1.75rem; }
+      .nav-link.about-link { display: inline; }
+      .hero-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: auto; }
+      .scroll-btn { bottom: 1.75rem; right: 2rem; }
+      .nameplate { padding-block: 5rem; }
+      .nameplate .label.corner { left: 2rem; top: 2rem; }
+      .nameplate .tagline { font-size: 0.875rem; line-height: 1.25rem; }
+      .about-photo .caption { bottom: 2rem; left: 2rem; }
+      .about-copy { padding: 2.5rem; }
+      .about-quote { font-size: 3rem; line-height: 1.02; }
+      .work { padding: 7rem 2rem; }
+      .work-head h2 { font-size: 4.5rem; }
+      .work-head .range { display: block; }
+      .credit { grid-template-columns: 7rem 1fr auto; padding-block: 2rem; }
+      .credit h3 { font-size: 3rem; line-height: 1; }
+      .site-footer { padding: 5rem 2rem; }
+    }
+
+    /* ------------------------------------------------------------------
+       ≥ 1024px
+    ------------------------------------------------------------------ */
+    @media (min-width: 1024px) {
+      .site-header { padding-inline: 3rem; }
+      .about { grid-template-columns: 1.35fr 0.65fr; }
+      .about-photo { min-height: 46rem; }
+      .about-copy { padding: 3rem; }
+      .about-body { padding-block: 2rem; }
+      .about-quote { font-size: 3.75rem; line-height: 1.02; }
+      .work { padding-inline: 3rem; }
+      .footer-inner { grid-template-columns: 1fr auto; align-items: end; }
+      .footer-links { align-items: flex-end; }
+      .site-footer { padding-inline: 3rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <main id="top">
+    <!-- Header -->
+    <header class="site-header">
+      <a href="#top" class="brand" aria-label="Rasheed Khaskheli, home">Rasheed Khaskheli</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="nav-link about-link" href="#about">About</a>
+        <a class="nav-link" href="#work">Work</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-icon" href="https://www.facebook.com/share/192JEbM5s9/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Hero portrait strip -->
+    <section class="hero" aria-label="Portraits of Rasheed Khaskheli">
+      <div class="hero-grid">
+        <img src="images/4.jpg" alt="Rasheed Khaskheli in a red striped shirt" style="object-position: 50% 25%" />
+        <img src="images/3.jpg" alt="Rasheed Khaskheli seated in a pink shirt" style="object-position: 40% 10%" />
+        <img src="images/2.jpg" alt="Rasheed Khaskheli smiling in a checked shirt" style="object-position: 50% 18%" />
+        <img src="images/1.jpg" alt="Rasheed Khaskheli in a black pinstripe shirt on a city street" style="object-position: 50% 40%" />
+      </div>
+      <a href="#about" class="scroll-btn" aria-label="Scroll to introduction">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      </a>
+    </section>
+
+    <!-- Name plate -->
+    <section class="nameplate">
+      <p class="label corner">Actor&nbsp;</p>
+      <div>
+        <h1>Rasheed Khaskheli</h1>
+        <p class="tagline">Television &amp; screen actor based in Pakistan</p>
+      </div>
+    </section>
+
+<!-- About -->
+    <section id="about" class="about">
+      <div class="about-photo">
+        <img src="images/4.jpg" alt="Rasheed Khaskheli smiling in a checked shirt" width="688" height="1518" loading="lazy" />
+      </div>
+      <div class="about-copy">
+        <p class="label">About Rasheed</p>
+        <div class="about-body">
+          <p class="about-quote">
+            A name that lives<br />beyond the <em>frame.</em>
+          </p>
+          <p class="about-text">
+            Rasheed Khaskheli is a talented Pakistani actor with over 20 years of experience in TV dramas and media. He is well-known for his natural acting and deep performance on camera. Over the years, he has worked in major television serials, regional dramas, and music videos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected work -->
+    <section id="work" class="work">
+      <div class="work-inner">
+        <div class="work-head">
+          <div>
+            <p class="label">Selected work</p>
+            <h2>On screen</h2>
+          </div>
+          <span class="range">2007—2020</span>
+        </div>
+        <div class="credits">
+          <article class="credit">
+            <span class="year">2020</span>
+            <h3><a href="https://www.youtube.com/watch?v=xpNB4nonj2c&list=PLVQENH-FbVooQ-EtPLjlrGQOM8QmYAD7f" target="_blank" rel="noopener noreferrer">Meeras</a></h3>
+            <p class="role">Drama · Sindh TV Channel</p>
+          </article>
+          <article class="credit">
+            <span class="year">2012</span>
+            <h3><a href="https://dai.ly/xyx4rp" target="_blank" rel="noopener noreferrer">Geo TV Drama Serial</a></h3>
+            <p class="role">Television Drama · Geo TV</p>
+          </article>
+          <article class="credit">
+            <span class="year">2007</span>
+            <h3><a href="https://www.youtube.com/watch?v=0KtLt9YxhA0&list=WL&index=42&pp=iAQBsAgC" target="_blank" rel="noopener noreferrer">Music Video Showcase</a></h3>
+            <p class="role">Model · Video Song</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+   <!-- Contact -->
+    <footer id="contact" class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <p class="label">Direct Contact &amp; Media</p>
+          <p class="footer-cta" style="text-decoration: none;">Remember the name.<br /><em>Rasheed.</em></p>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.facebook.com/share/192JEbM5s9/" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+            Facebook
+          </a>
+          <a href="tel:+923053074107">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +92 305 3074107
+          </a>
+          <a href="tel:+923048824303">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +92 304 8824303
+          </a>
+          <a href="mailto:rasheedkhaskheli48@gmail.com">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            rasheedkhaskheli48@gmail.com
+          </a>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© 2026 Rasheed Khaskheli</span>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
